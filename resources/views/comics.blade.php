@@ -17,13 +17,11 @@
                         <img src="{{$singleComic["thumb"]}}" alt="Copertina">
                     </div>
     
-                    <span class="series-card">{{$singleComic["series"]}}</span>
-
-                    <span class="title-card">{{$singleComic["title"]}}</span>
-
+                    <h5 class="series-card">{{$singleComic["series"]}}</h5>
+{{-- 
                     <br>
-    
-                    <span class="price-card">{{$singleComic["price"]}}</span>
+
+                    <span class="title-card">{{$singleComic["title"]}}</span> --}}
                 </a>
                 @endforeach
             </div>

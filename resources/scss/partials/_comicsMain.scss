@@ -37,6 +37,7 @@
                 ._card {
                     width: calc((100% / 6) - (12px / 6) * 5);
                     opacity: 1;
+                    text-decoration: none;
 
                     transition: all .3s;
 
@@ -67,13 +68,15 @@
                     }
 
                     .series-card {
-                        color: rgb(188, 187, 187);
-                        font-size: .8em;
+                        padding-top: .7em;
+                        color: rgb(236, 236, 236);
+                        text-transform: uppercase;
+                        text-align: center;
                     }
 
-                    .price-card {
-                        color: white;
-                    }
+                    // .price-card {
+                    //     color: white;
+                    // }
                 }
 
                 // HOVER DELLE CARD
