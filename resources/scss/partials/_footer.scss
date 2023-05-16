@@ -1,0 +1,122 @@
+.my-footer {
+    .top-footer {
+        background-image: url(../img/footer-bg.jpg);
+        background-size: cover;
+
+
+
+        .container {
+            display: flex;
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 450px;
+                position: absolute;
+                right: 10%;
+                top: -20px;
+            }
+
+            .list-wrapper {
+                display: flex;
+                flex-flow: column wrap;
+                gap: 1em;
+                height: 45vh;
+                width: 35%;
+                padding: 0.8em 0px;
+                z-index: 1;
+
+
+                span {
+                    text-transform: uppercase;
+                    font-weight: 800;
+                    color: white;
+                    margin: .5em 0;
+                }
+
+                ul {
+                    padding-left: .2em;
+                    margin-bottom: .2em;
+
+                    li {
+                        list-style-type: none;
+                        font-size: .9em;
+
+                        a {
+                            text-decoration: none;
+                            color: rgb(188, 188, 188);
+                            font-weight: 100;
+
+                            &:hover {
+                                color: white;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    .bottom-footer {
+        height: 80px;
+        background: $ternaryColor;
+
+        .container {
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .left-side {
+
+                ._btn {
+                    padding: .4em 1em;
+                    border-radius: 0px;
+                    border: 1.6px solid $primaryColor;
+                    background-color: transparent;
+                    text-transform: uppercase;
+                    font-size: .80em;
+                    letter-spacing: -1px;
+                    font-weight: 600;
+                    color: rgb(206, 205, 205);
+
+                    &:hover {
+                        border: 1.6px solid lighten($color: $primaryColor, $amount: 20);
+                        color: lighten($color: $white, $amount: 20);
+                        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.356);
+                    }
+                }
+            }
+
+            .right-side {
+                display: flex;
+
+                .social {
+                    color: $primaryColor;
+                    font-weight: 700;
+                    padding-right: .5em;
+                }
+
+                .social-icons-wrapper {
+                    width: 30px;
+                    height: 30px;
+                    color: $ternaryColor;
+                    border-radius: 50%;
+                    background-color: rgb(122, 122, 122);
+                    margin: 0 0.12em;
+
+                    i {
+                        color: $ternaryColor;
+
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+}

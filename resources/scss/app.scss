@@ -1,0 +1,19 @@
+@import '~bootstrap/scss/bootstrap';
+
+//Variabili
+@import './partials/variables';
+
+// header
+@import './partials/header';
+
+// jumbo
+@import './partials/jumbo';
+
+// footer
+@import './partials/footer';
+
+//Home Page
+@import './partials/homeMain';
+
+//Comics Page
+@import './partials/comicsMain'
