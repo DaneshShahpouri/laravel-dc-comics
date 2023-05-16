@@ -50,7 +50,11 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        $comic = comic::findOrFail($id);
+        $configurationData = config('data');
+        $currentPage = 'comics';
+
+        return view('comicsShow', compact('comic', 'configurationData', 'currentPage', 'id'));
     }
 
     /**

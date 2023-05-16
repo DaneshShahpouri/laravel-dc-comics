@@ -12,7 +12,7 @@
         <div class="_container-inner">
             <div class="current-series">
                 @foreach ($comics as $singleComic)
-                <div class="_card">
+                <a href="{{route('comics.show', $singleComic->id)}}" class="_card">
                     <div class="img-wrapper">
                         <img src="{{$singleComic["thumb"]}}" alt="Copertina">
                     </div>
@@ -24,7 +24,7 @@
                     <br>
     
                     <span class="price-card">{{$singleComic["price"]}}</span>
-                </div>
+                </a>
                 @endforeach
             </div>
             <button class="_btn">Load More</button>

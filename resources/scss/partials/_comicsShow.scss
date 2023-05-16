@@ -1,0 +1,41 @@
+.home-main {
+
+    .container {
+        .main-content {
+
+            .description {
+                display: flex;
+                flex-direction: column;
+                width: 70%;
+
+                .title {
+                    color: $titleColor;
+                }
+
+                .green-section {
+                    background: rgb(85, 186, 89);
+
+                    strong {
+                        span {
+                            color: rgb(178, 246, 141)
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+
+        .a-banner {
+            width: 30%;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+
+
+    }
+}
