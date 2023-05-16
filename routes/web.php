@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComicController;
 use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/', [PageController::class, 'index'])->name('home');
+
+Route::resource('/comics', ComicController::class);
+
+
+
+
+
+
+//Route Di debug
+
 
 // character
 Route::get('/character', function () {
@@ -23,77 +34,7 @@ Route::get('/character', function () {
 })->name('character');
 
 // comics
-Route::get('/comics', function () {
-
-    $comics = config('comics');
-    $footerSocials = config('footerUtility');
-    $mainBlueBanner = config('mainUtility');
-
-    $navLinks  = [
-        'character',
-        'comics',
-        'movies',
-        'tv',
-        'games',
-        'collectibles',
-        'video',
-        'fans',
-        'news',
-        'shop'
-    ];
-
-    $footerLinks = [
-        ['Dc Comics', [
-            'Character',
-            'Comics',
-            'Movies',
-            'Tv',
-            'Games',
-            'Cllectibles',
-            'Video',
-            'Fans',
-            'News',
-        ]], [
-            'Shop', [
-                'Shop DC',
-                'Shop DC Collectibles'
-            ]
-        ], [
-            'DC', [
-                'Terms Of Use',
-                'Privacy Policy (New)',
-                'Ad Choices',
-                'Advertising',
-                'Jobs',
-                'Subscritions',
-                'Talent Workshops',
-                'CPSC Certificates',
-                'Ratings',
-                'Shop Help',
-                'Contact Us'
-            ]
-        ], [
-            'Sites',
-            [
-                'DC',
-                'MAD Magazine',
-                'DC Kids',
-                'DC Universe',
-                'DC Power Visa'
-            ]
-        ]
-    ];
-
-    $currentPage = 'comics';
-
-    // |--------------------------------------------------------------------------
-    // Non sono completamente sicuro di come passo i dati di 'footerLinks', 
-    // forse è più giusto passarli dai config come 'comics' e 'footerUtility'.
-    // |--------------------------------------------------------------------------
-
-
-    return view('comics', compact('comics', 'footerSocials', 'mainBlueBanner', 'navLinks', 'footerLinks', 'currentPage'));
-})->name('comics');
+Route::get('/comics', [ComicController::class, 'index'])->name('comics');
 
 // movies
 Route::get('/movies', function () {

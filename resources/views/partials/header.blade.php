@@ -20,7 +20,7 @@
         <div class="container">
 
             <div class="logo">
-                <a href="">
+                <a href="{{route('home')}}">
                     <img src="{{ Vite::asset('resources/img/dc-logo.png') }}" alt="logo">
                 </a>
             </div>
