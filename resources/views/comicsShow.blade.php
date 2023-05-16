@@ -22,7 +22,7 @@
 
 
             <div class="a-banner d-flex flex-column">
-                <h6 class="text-grey">ADVERTISEMENT</h6>
+                <h6>ADVERTISEMENT</h6>
                 <img src="{{ Vite::asset('resources/img/advimg.jpg') }}" alt="advbanner">
             </div>
             
