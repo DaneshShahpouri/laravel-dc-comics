@@ -10,6 +10,11 @@
         </div>
 
         <div class="_container-inner">
+            
+            {{-- AGGIUNTA COMIC --}}
+            <a class="btn btn-primary" href="{{route('comics.create')}}">aggiungi un nuovo Volume</a>
+            {{-- AGGIUNTA COMIC --}}
+
             <div class="current-series">
                 @foreach ($comics as $singleComic)
                 <a href="{{route('comics.show', $singleComic->id)}}" class="_card">

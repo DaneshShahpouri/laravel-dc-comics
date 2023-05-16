@@ -18,7 +18,7 @@ class ComicController extends Controller
         $currentPage = 'comics';
         $comics = comic::all();
 
-        return view('comics', compact('configurationData', 'currentPage', 'comics'));
+        return view('comics/comics', compact('configurationData', 'currentPage', 'comics'));
     }
 
     /**
@@ -28,7 +28,9 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        $configurationData = config('data');
+        $currentPage = 'comics';
+        return view('comics/create', compact('configurationData', 'currentPage'));
     }
 
     /**
@@ -39,7 +41,20 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_comic = $request->all();
+
+        $newComic = new comic();
+        $newComic->title = $form_comic['title'];
+        $newComic->description = $form_comic['description'];
+        $newComic->thumb = $form_comic['thumb'];
+        $newComic->price = $form_comic['price'];
+        $newComic->series = $form_comic['series'];
+        $newComic->sale_date = $form_comic['sale-date'];
+        $newComic->type = $form_comic['type'];
+
+        $newComic->save();
+
+        return  redirect()->route('comics.show', $newComic->id);
     }
 
     /**
@@ -54,7 +69,7 @@ class ComicController extends Controller
         $configurationData = config('data');
         $currentPage = 'comics';
 
-        return view('comicsShow', compact('comic', 'configurationData', 'currentPage', 'id'));
+        return view('comics/comicsShow', compact('comic', 'configurationData', 'currentPage', 'id'));
     }
 
     /**
