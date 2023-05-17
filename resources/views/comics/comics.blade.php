@@ -36,24 +36,58 @@
 
 </section>
 
+
 <section class="blue-banner">
 
     <div class="container">
         <div class="container-inner">
-            @foreach($configurationData[3] as $item)
-
+            
             <div class="blue-banner-item">
                 <div class="icon-wrapper">
-                    <img src="{{ Vite::asset($item['img']) }}" alt="icon blue banner">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-digital-comics.png" alt="icon blue banner">
                 </div>
 
-                <div class="title">{{$item['name']}}</div>
+                <div class="title">Digital comics</div>
             </div>
 
-            @endforeach
-        </div>
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-merchandise.png" alt="icon blue banner">
+                </div>
+
+                <div class="title">DC Merchandise</div>
+            </div>
+
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-subscriptions.png" alt="icon blue banner">
+                </div>
+
+                <div class="title">Subscription</div>
+            </div>
+
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-shop-locator.png" alt="icon blue banner">
+                </div>
+
+                <div class="title">Comic Shop Locator</div>
+            </div>
+
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-dc-power-visa.svg" alt="icon blue banner">
+                </div>
+
+                <div class="title">Dc Power Visa</div>
+            </div>
+
+                    </div>
     </div>
-    
 </section>
 
 @endsection

@@ -26,10 +26,17 @@
             </div>
     
             <ul class="nav-menu">
-                @foreach ($configurationData[0] as $link)
-                    <li class="{{$link==$currentPage ? 'activated' : ''}}"><a href="{{route($link)}}">{{$link}}</a></li>
-                @endforeach
-            </ul>
+                <li class=""><a href="">character</a></li>
+                <li class="{{$currentPage=='comics' ? 'activated':''}}"><a href="http://127.0.0.1:8000/comics">comics</a></li>
+                <li class=""><a href="">movies</a></li>
+                <li class=""><a href="">tv</a></li>
+                <li class=""><a href="">games</a></li>
+                <li class=""><a href="">collectibles</a></li>
+                <li class=""><a href="">video</a></li>
+                <li class=""><a href="">fans</a></li>
+                <li class=""><a href="">news</a></li>
+                <li class=""><a href="">shop</a></li>
+        </ul>
     
             <div class="search">
                 <input type="text" placeholder="Search">

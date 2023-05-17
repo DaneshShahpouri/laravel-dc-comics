@@ -8,9 +8,8 @@ class PageController extends Controller
 {
     public function index()
     {
-        $configurationData = config('data');
         $currentPage = 'home';
 
-        return view('home', compact('configurationData', 'currentPage'));
+        return view('home', compact('currentPage'));
     }
 }

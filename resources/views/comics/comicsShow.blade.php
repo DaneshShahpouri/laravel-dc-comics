@@ -2,8 +2,25 @@
 
 @section('content')
 
+<div class="buttons-wrapper" id="my-modal">
+    <span>I File verranno eliminati <strong> definitivamente</strong>. <br>
+    Sei sicuro di voler continuare?</span>
+    <div class="d-flex align-items-center justify-content-center">
 
-<main class="home-main">
+        <button id="deny-button" class="btn btn-secondary">Annulla</button>
+
+        <form id="delete-conferm" action="{{route('comics.destroy', $comic->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+
+            <input type="submit" class="btn btn-danger" value="Elimina">
+        </form>
+    </div>
+
+    
+</div>
+
+<main id="home-main" class="home-main">
     <div class="blue-banner"></div>
     <div class="container">
         
@@ -37,25 +54,7 @@
                     <div id="delete-button" class="btn btn-danger">Elimina</div>
                     
                 </div>
-                
-                <div class="buttons-wrapper" id="my-modal">
-                    <span>I File verranno eliminati <strong> definitivamente</strong>. <br>
-                    Sei sicuro di voler continuare?</span>
-                    <div class="d-flex align-items-center justify-content-center">
-
-                        <button id="deny-button" class="btn btn-secondary">Annulla</button>
-
-                        <form id="delete-conferm" action="{{route('comics.destroy', $comic->id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-    
-                            <input type="submit" class="btn btn-danger" value="Elimina">
-                        </form>
-                    </div>
-
-                </div>
-                
-                
+              
             </div>
             <div class="a-banner d-flex flex-column">
                 <h6>ADVERTISEMENT</h6>
@@ -71,29 +70,63 @@
 
     <div class="container">
         <div class="container-inner">
-            @foreach($configurationData[3] as $item)
-
+            
             <div class="blue-banner-item">
                 <div class="icon-wrapper">
-                    <img src="{{ Vite::asset($item['img']) }}" alt="icon blue banner">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-digital-comics.png" alt="icon blue banner">
                 </div>
 
-                <div class="title">{{$item['name']}}</div>
+                <div class="title">Digital comics</div>
             </div>
 
-            @endforeach
-        </div>
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-merchandise.png" alt="icon blue banner">
+                </div>
+
+                <div class="title">DC Merchandise</div>
+            </div>
+
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-subscriptions.png" alt="icon blue banner">
+                </div>
+
+                <div class="title">Subscription</div>
+            </div>
+
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-comics-shop-locator.png" alt="icon blue banner">
+                </div>
+
+                <div class="title">Comic Shop Locator</div>
+            </div>
+
+            
+            <div class="blue-banner-item">
+                <div class="icon-wrapper">
+                    <img src="http://[::1]:5173/resources/img/buy-dc-power-visa.svg" alt="icon blue banner">
+                </div>
+
+                <div class="title">Dc Power Visa</div>
+            </div>
+
+                    </div>
     </div>
-    
 </section>
 
 <script>
     let deny_btn = document.getElementById('deny-button');
     let delete_btn = document.getElementById('delete-button');
     let modal = document.getElementById('my-modal');
+    let container = document.getElementById('home-main');
 
-    console.log(deny_btn);
-    console.log(delete_btn);
+    // console.log(deny_btn);
+    // console.log(delete_btn);
 
     function toggleClass(){
         if(modal.classList.contains('open')){
@@ -110,6 +143,8 @@
     deny_btn.addEventListener('click', ()=>{
         toggleClass();
     })
+
+    
 </script>
 
 @endsection
