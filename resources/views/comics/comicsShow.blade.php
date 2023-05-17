@@ -2,6 +2,7 @@
 
 @section('content')
 
+{{-- MODAL --}}
 <div class="buttons-wrapper" id="my-modal">
     <span>I File verranno eliminati <strong> definitivamente</strong>. <br>
     Sei sicuro di voler continuare?</span>
@@ -17,15 +18,17 @@
         </form>
     </div>
 
-    
 </div>
+
+<div id="layout-black"></div>
+{{-- /MODAL --}}
 
 <main id="home-main" class="home-main">
     <div class="blue-banner"></div>
     <div class="container">
         
         <div class="img-wrapper">
-            <img src="{{$comic["thumb"]}}" alt="">
+            <img src="{{$comic["thumb"]}}" alt="anteprima immagine">
         </div>
 
         <div class="main-content">
@@ -33,7 +36,7 @@
                 <h2 class="title">{{$comic["title"]}}</h2>
                 
                 <div class="green-section p-2">
-                    <strong class="text-white"><span>U.S. Price:</span>{{$comic['price']}}</strong>
+                    <strong class="text-white"><span>U.S. Price: </span>{{$comic['price']}}</strong>
                 </div>
 
                 <p class="p-2">{{$comic["description"]}}</p>
@@ -120,17 +123,27 @@
 </section>
 
 <script>
+
     let deny_btn = document.getElementById('deny-button');
     let delete_btn = document.getElementById('delete-button');
     let modal = document.getElementById('my-modal');
-    let container = document.getElementById('home-main');
+    let layer = document.getElementById('layout-black');
+ 
+    delete_btn.addEventListener('click', function(){
+        modal.classList.toggle('open');
+        layer.classList.toggle('open');
+    });
 
-   
-    delete_btn.addEventListener('click', function(){modal.classList.toggle('open')});
+    deny_btn.addEventListener('click', function(){
+        modal.classList.toggle('open');
+        layer.classList.toggle('open');
+    });
 
-    deny_btn.addEventListener('click', function(){modal.classList.toggle('open')});
+    layer.addEventListener('click', function(){
+        modal.classList.toggle('open');
+        layer.classList.toggle('open');
+    });
 
-    
 </script>
 
 @endsection
