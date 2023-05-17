@@ -49,9 +49,9 @@
                 </div>
 
                 <div class="buttons d-flex justify-content-around m-5">
-                    <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary">Modifica</a>
+                    <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i> Modifica</a>
 
-                    <div id="delete-button" class="btn btn-danger">Elimina</div>
+                    <div id="delete-button" class="btn btn-danger"><i class="fa-solid fa-trash"></i> Elimina</div>
                     
                 </div>
               
@@ -125,24 +125,10 @@
     let modal = document.getElementById('my-modal');
     let container = document.getElementById('home-main');
 
-    // console.log(deny_btn);
-    // console.log(delete_btn);
+   
+    delete_btn.addEventListener('click', function(){modal.classList.toggle('open')});
 
-    function toggleClass(){
-        if(modal.classList.contains('open')){
-            modal.classList.remove('open')
-        }else{
-            modal.classList.add('open')
-        }
-    };
-
-    delete_btn.addEventListener('click', ()=>{
-        toggleClass();
-    });
-
-    deny_btn.addEventListener('click', ()=>{
-        toggleClass();
-    })
+    deny_btn.addEventListener('click', function(){modal.classList.toggle('open')});
 
     
 </script>
