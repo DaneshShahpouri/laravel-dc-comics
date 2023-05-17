@@ -29,18 +29,24 @@
 
                 </div>
 
-                <div class="buttons d-flex justify-content-around m-5">
+                <div class=" w-75 buttons d-flex justify-content-around m-5">
                     <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary">Modifica</a>
-                    <a href="" class="btn btn-danger">Cancella</a>
+
+                    <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <input type="submit" class="btn btn-danger" value="Elimina">
+                    </div>
                 </div>
+                
+                
+                <div class="a-banner d-flex flex-column">
+                    <h6>ADVERTISEMENT</h6>
+                    <img src="{{ Vite::asset('resources/img/advimg.jpg') }}" alt="advbanner">
+                </div>
+                
             </div>
-
-
-            <div class="a-banner d-flex flex-column">
-                <h6>ADVERTISEMENT</h6>
-                <img src="{{ Vite::asset('resources/img/advimg.jpg') }}" alt="advbanner">
-            </div>
-            
         </div>
       
       
