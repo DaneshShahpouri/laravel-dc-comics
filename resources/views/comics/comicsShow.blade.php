@@ -18,6 +18,21 @@
                 </div>
 
                 <p class="p-2">{{$comic["description"]}}</p>
+                <h4>Specifiche</h4>
+    
+                <div class="container-fluid d-flex flex-column">
+
+                    <span><strong> Serie: </strong>{{$comic["series"]}}</span>
+                    <span><strong> data di rilascio: </strong> {{$comic["sale_date"]}}</span>
+                    <span><strong> Prezzo: </strong> {{$comic["price"]}}</span>
+                    <span><strong> Tipo: </strong> {{$comic["type"]}}</span>
+
+                </div>
+
+                <div class="buttons d-flex justify-content-around m-5">
+                    <a href="{{route('comics.edit', $comic->id)}}" class="btn btn-primary">Modifica</a>
+                    <a href="" class="btn btn-danger">Cancella</a>
+                </div>
             </div>
 
 

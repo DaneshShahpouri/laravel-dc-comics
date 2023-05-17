@@ -80,7 +80,11 @@ class ComicController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comic = comic::findOrFail($id);
+        $configurationData = config('data');
+        $currentPage = 'comics';
+
+        return view('comics/comicsEdit', compact('comic', 'configurationData', 'currentPage', 'id'));
     }
 
     /**
@@ -90,9 +94,17 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, comic $comic)
     {
-        //
+        $form_data = $request->all();
+
+        //dd($form_data);
+
+        $comic->update($form_data);
+
+        $comic->save();
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**
