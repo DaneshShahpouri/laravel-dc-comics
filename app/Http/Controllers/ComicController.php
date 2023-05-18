@@ -39,6 +39,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|max:150',
+            'description' => 'nullable',
+            'thumb' => 'nullable|image|max:255',
+            'price' => 'required|max:10',
+            'series' => 'nullable|max:70',
+            'sale-date' => 'required|date|max:10',
+            'type' => 'nullable|max100',
+        ]);
+
         $form_comic = $request->all();
 
         $newComic = new comic();
@@ -115,4 +125,8 @@ class ComicController extends Controller
 
         return redirect()->route('comics.index');
     }
+
+    // private function validation(){
+
+    // }
 }

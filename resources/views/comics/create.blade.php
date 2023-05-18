@@ -3,6 +3,14 @@
 @section('content')
 
 <div class="container">
+    @if ($errors->any)
+    <ul class="container">
+        @foreach($errors->all() as $error)
+            <li>errore: {{$error}}</li>
+            
+            @endforeach
+        </ul>
+    @endif
     
     <h1 class="text-center title">Aggiungi un nuovo Comic</h1>
     

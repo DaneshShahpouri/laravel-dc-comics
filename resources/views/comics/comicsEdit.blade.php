@@ -1,8 +1,17 @@
 @extends('layout/main')
 
 @section('content')
-<div class="container">
 
+<div class="container">
+    @if ($errors->any)
+    <ul class="container">
+        @foreach ($errors->all() as $error)
+            <li>{{$error}}</li>
+            
+            @endforeach
+        </ul>
+    @endif
+    
     <div class="m-4">
         <h1 class="title text-center">Modifica {{$comic->title}}</h1>
         
