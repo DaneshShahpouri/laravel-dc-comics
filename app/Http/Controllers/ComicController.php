@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -39,15 +40,8 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:150',
-            'description' => 'nullable',
-            'thumb' => 'nullable|image|max:255',
-            'price' => 'required|max:10',
-            'series' => 'nullable|max:70',
-            'sale-date' => 'required|date|max:10',
-            'type' => 'nullable|max100',
-        ]);
+
+        $this->validation($request);
 
         $form_comic = $request->all();
 
@@ -102,6 +96,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, comic $comic)
     {
+        $this->validation($request);
+
         $form_data = $request->all();
 
         //dd($form_data);
@@ -126,7 +122,26 @@ class ComicController extends Controller
         return redirect()->route('comics.index');
     }
 
-    // private function validation(){
+    private function validation(Request $request)
+    {
+        $formData = $request->all();
+        $validator = Validator::make($formData, [
+            'title' => 'required|max:150',
+            'description' => 'nullable',
+            'thumb' => 'nullable|image|max:255',
+            'price' => 'required|max:10',
+            'series' => 'nullable|max:70',
+            'sale-date' => 'required|date|max:10',
+            'type' => 'nullable|max100',
+        ], [
+            'title.request' => "Titolo necessario per continuare",
+            'title.max' => "Titolo troppo lungo, non deve superare i 150 caratteri",
+            'price.request' => "Prezzo necessario per continuare",
+            'price.max' => "Prezzo troppo lungo, non deve superare i 10 caratteri",
+            'sale-date.request' => "Data di lancio necessaria per continuare",
+            'sale-date.max' => "Data di lancio troppo lunga, non deve superare i 10 caratteri",
+        ])->validate();
 
-    // }
+        return $validator;
+    }
 }
