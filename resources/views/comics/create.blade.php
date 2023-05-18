@@ -50,7 +50,7 @@
     
         <div class="mb-2 d-flex flex-column">
             <label for="price">Prezzo</label>
-            <input class="form-control @error('price') is-invalid @enderror" type="text" id="thumb" name="thumb" value="{{old('price')}}">
+            <input class="form-control @error('price') is-invalid @enderror" type="text" id="price" name="price" value="{{old('price')}}">
             @error('price')
             <div class="invalid-feedback">
                 {{$message}}
@@ -70,7 +70,7 @@
     
         <div class="mb-2 d-flex flex-column">
             <label for="sale-date">Data di vendita</label>
-            <input class="form-control @error('sale-date"') is-invalid @enderror" type="text" id="sale-date" name="sale-date" value="{{old('sale-date')}}">
+            <input class="form-control @error('sale-date') is-invalid @enderror" type="text" id="sale-date" name="sale-date" value="{{old('sale-date')}}">
             @error('sale-date')
             <div class="invalid-feedback">
                 {{$message}}

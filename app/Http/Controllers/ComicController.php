@@ -131,15 +131,15 @@ class ComicController extends Controller
             'thumb' => 'nullable|image|max:255',
             'price' => 'required|max:10',
             'series' => 'nullable|max:70',
-            'sale_date' => 'required|date|max:10',
+            'sale-date' => 'required|date|max:10',
             'type' => 'nullable|max:100',
         ], [
             'title.required' => "Titolo necessario per continuare",
             'title.max' => "Titolo troppo lungo, non deve superare i 150 caratteri",
             'price.required' => "Prezzo necessario per continuare",
             'price.max' => "Prezzo troppo lungo, non deve superare i 10 caratteri",
-            'sale_date.required' => "Data di lancio necessaria per continuare",
-            'sale_date.max' => "Data di lancio troppo lunga, non deve superare i 10 caratteri",
+            'sale-date.required' => "Data di lancio necessaria per continuare",
+            'sale-date.max' => "Data di lancio troppo lunga, non deve superare i 10 caratteri",
         ])->validate();
 
         return $validator;
